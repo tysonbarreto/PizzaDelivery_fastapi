@@ -1,0 +1,28 @@
+[project]
+name = "PD"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "", email = ""},
+]
+dependencies = ["fastapi>=0.115.6", "uvicorn>=0.34.0", "sqlalchemy>=2.0.36", "psycopg2-binary>=2.9.10", "sqlalchemy-utils>=0.41.2", "python-dotenv>=1.0.1", "pyodbc>=5.2.0", "ipykernel>=6.29.5", "pandas>=2.2.3"]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm.scripts]
+main = {cmd = "uvicorn main:app --reload"}
+init_db = "./src/pd/init_db.py"
+
+
+[tool.pdm.build]
+package-dir="src/pd"
+
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true
